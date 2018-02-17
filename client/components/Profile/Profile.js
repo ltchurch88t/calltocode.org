@@ -18,10 +18,11 @@ class Profile extends Component {
     return (
       <ListOfProjects
         title={title}
-        projects={this.props.projects} />
+        projects={this.props.projects}/>
     )
   }
 }
+
 
 function mapStateToProps (state) {
   return {

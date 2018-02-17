@@ -23,6 +23,10 @@ class Project extends Component {
     }
   }
 
+  getApplicationDetail () {
+    return "hell"
+  }
+
   renderProjectApplicationResult (project) {
     const applied = this.getAppliedStatus()
     const isContact = this.isUserTypeContact()
