@@ -18,9 +18,6 @@ class Header extends Component {
   }
 
   renderHeaderButtons () {
-    var {login} = this.props;
-    console.log("had been logged", login);
-
     if (this.props.authenticated) {
       const authButtons = [
         <Link key="logout" to='/' onClick={this.props.logout} className={this.getLinkStyles()}>LOG OUT</Link>,
@@ -35,15 +32,12 @@ class Header extends Component {
         return authButtons
       }
     } else {
-
-      var buttons=[<Link key="signup" to="/signup" className={this.getLinkStyles('signup')}>SIGN UP</Link>];
-      if (login.login) {
-        buttons.push(<Link key="login" to='/login' className={this.getLinkStyles('login')}>LOG IN</Link>);
-      } else {
-        buttons.push(<Link key="login" to='/login' className={this.getLinkStyles('login') + ' ' + styles.disabled}>LOG IN</Link>);
-
-      }
-      return buttons;
+      return (
+        <div>
+          <Link key="signup" to="/signup" className={this.getLinkStyles('signup')}>SIGN UP</Link>
+          <Link key="login" to='/login' className={this.getLinkStyles('login')}>LOG IN</Link>
+        </div>
+      )
     }
   }
 
@@ -54,7 +48,6 @@ class Header extends Component {
   }
 
   render () {
-
     return (
       <div className={styles.headerRoot}>
         <AppBar position="static" color="inherit" elevation={0}>
@@ -75,19 +68,20 @@ function mapStateToProps (state) {
     authenticated: state.auth.authenticated,
     currentPage: state.routing.location.pathname,
     user: state.user,
-    login:state.login
+    login: state.login
   }
 }
 
 const mapDispatchToProps = {
-  logout: AuthActionCreator.logout,
-};
+  logout: AuthActionCreator.logout
+}
 
 Header.propTypes = {
   authenticated: PropTypes.bool.isRequired,
   currentPage: PropTypes.string.isRequired,
   logout: PropTypes.func.isRequired,
-  user: PropTypes.object.isRequired
-};
+  user: PropTypes.object.isRequired,
+  login: PropTypes.object
+}
 
 export default connect(mapStateToProps, mapDispatchToProps)(Header)
