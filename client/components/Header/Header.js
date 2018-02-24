@@ -48,7 +48,6 @@ class Header extends Component {
   }
 
   render () {
-
     return (
       <div className={styles.headerRoot}>
         <AppBar position="static" color="inherit" elevation={0}>
@@ -68,19 +67,21 @@ function mapStateToProps (state) {
   return {
     authenticated: state.auth.authenticated,
     currentPage: state.routing.location.pathname,
-    user: state.user
+    user: state.user,
+    login: state.login
   }
 }
 
 const mapDispatchToProps = {
-  logout: AuthActionCreator.logout,
-};
+  logout: AuthActionCreator.logout
+}
 
 Header.propTypes = {
   authenticated: PropTypes.bool.isRequired,
   currentPage: PropTypes.string.isRequired,
   logout: PropTypes.func.isRequired,
-  user: PropTypes.object.isRequired
-};
+  user: PropTypes.object.isRequired,
+  login: PropTypes.object
+}
 
 export default connect(mapStateToProps, mapDispatchToProps)(Header)
