@@ -1,37 +1,51 @@
 @import '../../scss/partials/partials';
 
-.title {
-	font-size: 20px;
-	margin: 0 0 15px -240px;
-	padding: 15px;
-	padding-left: 100px;
-	color: white;
-	width: 92vw;
-	background-color: $backgound-orange;
+.homeContainer {
+	display: block;
+	position: absolute;
+	bottom: 0;
+	top: 0;
+	left: 0;
+	right: 0;
+	margin: 0;
+	height: 100vh;
+	width: 100vw;
 }
 
 .homeGrid {
 	background-color: $background-gray;
 	display: grid;
-	margin-top: 30px;
-	margin-left: -150px;
-	grid-template-columns: auto 85%;
+	width: 100vw;
+	height: auto;
+	padding: 0 40px 0 40px;
+	margin-top: 128px;
+	grid-template-columns: 360px 975px;
+	grid-row-gap: 40px;
 	grid-template-areas:
+		"title title"
 		"filterSection projectList";
+}
+
+.title {
+	grid-area: title;
+	font-size: 20px;
+	margin: 0 0 0 -50px;
+	padding: 15px 15px 15px 80px;
+	width: 100vw;
+	color: white;
+	background-color: $backgound-orange;
 }
 
 .projectList {
 	grid-area: projectList;
 	display: grid;
-	grid-row-gap: 20px;
-	padding: 0 30px;
+	grid-row-gap: 15px;
+	padding: 10px 30px 0 0;
 	height: auto;
 }
 
 .filterSection {
-	padding: 0 30px 10px;
 	grid-area: filterSection;
-	box-shadow: 0 4px 80px 0 rgba(0, 0, 0, 0.1);
 	display: grid;
 	grid-template-rows: 60px 30px auto 30px auto;
 	grid-template-columns: 300px;
@@ -43,6 +57,8 @@
 		"technologies";
 	grid-row-gap: 10px;
 	height: 800px;
+	padding: 0 30px 10px;
+	box-shadow: 0 4px 80px 0 rgba(0, 0, 0, 0.1);
 }
 
 .filterTitle {

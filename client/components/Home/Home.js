@@ -70,10 +70,8 @@ class Home extends Component {
   render () {
     return (
       <div className={styles.homeContainer}>
-        <div className={styles.homeTitleBar}>
-          <h1 className={styles.title}>Find Projects</h1>
-        </div>
         <div className={styles.homeGrid}>
+          <h1 className={styles.title}>Find Projects</h1>
           <section className={styles.filterSection}>
             <span className={styles.filterTitle}><h1>{'Filters'}</h1></span>
             <FormLabel className={styles.causeTitle}>Causes</FormLabel>

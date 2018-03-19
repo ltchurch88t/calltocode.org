@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
-import { GridListTileBar } from 'material-ui/GridList'
+import Chip from 'material-ui/Chip'
 
 import styles from './Project.scss'
 
@@ -63,9 +63,18 @@ class Project extends Component {
         onClick={this.handleClick.bind(this)}>
         <img className={styles.image} src={project.image || require('../../images/logo.png')} />
         <div className={styles.projectContent}>
-          <div>{project.name}</div>
+          <div className={styles.projectTitle}>{project.name}</div>
           <div>{isContact && isProfile ? null : project.organization.name || 'Organization Name'}</div>
           <div>{this.renderProjectApplicationResult(project)}</div>
+        </div>
+        <div className={styles.causesContainer}>
+          { project.causes.map((cause, chipIndex) => {
+            return (
+              <Chip key={`${chipIndex}`}
+                className={styles.cause}
+                label={cause} />
+            )
+          })}
         </div>
       </div>
     )

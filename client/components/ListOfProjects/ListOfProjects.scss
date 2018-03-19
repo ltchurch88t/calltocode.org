@@ -2,6 +2,7 @@
 
 .projectListSection {
   padding: 0 60px;
+  width: 93%;
   display: grid;
 }
 
@@ -16,20 +17,6 @@
 }
 
 .projectTile {
-    margin-bottom: 20px;
-}
-
-.causesContainer {
-  display: inline-flex;
-  width: 100%;
-  overflow-x: scroll;
-}
-
-.cause {
-  margin-bottom: 70px;
-  margin-right: 5px;
-}
-
-.projectTile {
-  display: flex;
+    margin-bottom: 15px;
+    display: grid;
 }

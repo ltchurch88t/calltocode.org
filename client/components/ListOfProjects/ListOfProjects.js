@@ -1,8 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
-import GridList, { GridListTile } from 'material-ui/GridList'
-import Chip from 'material-ui/Chip'
 
 import UserActionCreator from '../../actions/user'
 import ApplicationActionCreator from '../../actions/application'
@@ -27,19 +25,10 @@ class ListOfProjects extends Component {
       return (
         <div className={styles.projectTile} key={projectIndex}>
           <Project
+            className={styles.projectInfo}
             project={project}
             authenticated={this.props.authenticated}
             applyForProject={this.applyToProject} />
-
-          <div className={styles.causesContainer}>
-            { project.causes.map((cause, chipIndex) => {
-              return (
-                <Chip key={`${projectIndex}${chipIndex}`}
-                  className={styles.cause}
-                  label={cause} />
-              )
-            })}
-          </div>
         </div>
       )
     })
